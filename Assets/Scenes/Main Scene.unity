@@ -171,7 +171,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 7.858034e-10, y: 0.0046642944, z: 0.0000000031432137}
+  m_ConnectedAnchor: {x: 0.0000000011350494, y: 0.004664294, z: -8.1490725e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -359,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -390,6 +390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709876172374130502, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 6249455948925261948, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -615,7 +620,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000013872068, y: 0.00087457296, z: -0.00016450617}
+  m_ConnectedAnchor: {x: -6.6393113e-10, y: 0.0008745733, z: -0.00016450245}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -727,7 +732,7 @@ PrefabInstance:
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -748,6 +753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709876172374130502, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6249455948925261948, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -839,6 +849,16 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 0.0036961045
       objectReference: {fileID: 0}
+    - target: {fileID: 9028081300609032239, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c9a67f61714cc144195481384328a119, type: 2}
+    - target: {fileID: 9028081300609032239, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b6719839794744bb6d7575f05568b0, type: 3}
 --- !u!1 &224752562
@@ -868,7 +888,6 @@ Transform:
   m_LocalPosition: {x: 26.882694, y: -9.367939, z: -0.5402074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1744030831}
   - {fileID: 5006512736467095722}
   - {fileID: 1257221696}
   - {fileID: 811456421}
@@ -894,7 +913,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.1641532e-10, y: 0.0026445216, z: -0.0000000010477379}
+  m_ConnectedAnchor: {x: 2.3283064e-10, y: 0.0026445216, z: -5.820766e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -1194,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -1225,6 +1244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709876172374130502, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 6249455948925261948, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -1351,7 +1375,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0008505184, y: -0.00048555282, z: -0.000006407383}
+  m_ConnectedAnchor: {x: 0.0008505183, y: -0.00048555282, z: -0.000006407383}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1479,7 +1503,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000002561137, y: 0.0026446092, z: -0.0000000016298145}
+  m_ConnectedAnchor: {x: -7.566996e-10, y: 0.0026446076, z: -0.0000000027939677}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -1593,7 +1617,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000019154075, y: 0.004287007, z: 0.00070435065}
+  m_ConnectedAnchor: {x: -0.000019152329, y: 0.0042870073, z: 0.00070435385}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1883,7 +1907,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00085051236, y: -0.00048555457, z: -0.000012496457}
+  m_ConnectedAnchor: {x: -0.00085051224, y: -0.00048555364, z: -0.000012496537}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1942,7 +1966,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 224752563}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6057140222963153312, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
@@ -1952,17 +1976,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.6
+      value: 9.282694
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.116211
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.3
+      value: 21.759792
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
@@ -1987,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
@@ -2007,12 +2031,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 250.00002
+      value: 250.00005
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 250.00002
+      value: 250.00005
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
@@ -2022,7 +2046,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 56da2fd12602055468ca37639a2c32c4,
         type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Spiderman
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56da2fd12602055468ca37639a2c32c4, type: 3}
@@ -2111,7 +2135,7 @@ MonoBehaviour:
     type: 3}
   bulletSpawnTransform: {fileID: 351624040}
   scope: {fileID: 1937654900}
-  shootingForce: 40
+  shootingForce: 30
   minDistanceToPlayAnimation: 1
   reloadDuration: 1.5
   ammoText: {fileID: 300903749}
@@ -2238,7 +2262,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0017876362, y: 0.00276989, z: 0.0006900977}
+  m_ConnectedAnchor: {x: 0.0017876381, y: 0.00276989, z: 0.000690101}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -2334,6 +2358,98 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!1 &1035893341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035893342}
+  - component: {fileID: 1035893343}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035893342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035893341}
+  m_LocalRotation: {x: -0, y: 0.77663064, z: -0, w: 0.6299563}
+  m_LocalPosition: {x: 0.00014136615, y: 0.020000001, z: -0.00010907223}
+  m_LocalScale: {x: 0.003999999, y: 0.004, z: 0.003999999}
+  m_Children: []
+  m_Father: {fileID: 1744030831}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1035893343
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035893341}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1076979107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,7 +2963,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000018626451, y: 0.004662241, z: 0.0000000040745363}
+  m_ConnectedAnchor: {x: 0.0000000027066562, y: 0.0046622413, z: -1.1641532e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3465,7 +3581,7 @@ PrefabInstance:
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -3486,6 +3602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709876172374130502, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 6249455948925261948, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -3804,7 +3925,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0019017473, y: 0.0031482393, z: -0.00040652195}
+  m_ConnectedAnchor: {x: -0.0019017488, y: 0.003148238, z: -0.00040652507}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -67650,7 +67771,7 @@ PrefabInstance:
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1423194508680580437, guid: 36b6719839794744bb6d7575f05568b0,
         type: 3}
@@ -67671,6 +67792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709876172374130502, guid: 36b6719839794744bb6d7575f05568b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b6719839794744bb6d7575f05568b0, type: 3}
