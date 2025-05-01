@@ -19,11 +19,11 @@ Fitur:
    - Animasi Musuh Ketembak ✅
 6. UI:
    - Main Menu
-   - Lokasi Musuh
+   - Lokasi Musuh 
    - Perintilan (Jumlah Peluru, Peringatan, DLL)
 7. World:
    - Masih template ✅
-   - Bagusin Terrain + Tata letak kota
+   - Bagusin Terrain + Tata letak kota ✅
    - Penempatan Musuh + Jumlah Musuh
 8. Reward & Punishment:
    - Gatau masih belum kebayang
