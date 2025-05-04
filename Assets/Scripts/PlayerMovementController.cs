@@ -76,17 +76,11 @@ public class PlayerMovementController : MonoBehaviour
 
 	private void HandleRotation()
 	{
-		float pitch = imuReader.pitch;
-		float yaw = imuReader.yaw;
-
-		// Akumulasi rotasi untuk kelancaran dengan filter penghalusan
-		currentRotationX += pitch * Time.deltaTime * mouseSensvityChangeRate;
-		currentRotationY += yaw * Time.deltaTime * mouseSensvityChangeRate;
-
-		// Batasi rotasi vertikal untuk mencegah kamera terbalik
-		currentRotationX = Mathf.Clamp(currentRotationX, -90f, 90f);
-
-		// Rotasi horizontal tanpa batasan
+		float yaw = mouseInputX * Time.deltaTime * rotationSpeed * mouseSensivity;
+		currentRotationY += yaw;
+		float pitch = mouseInputY * Time.deltaTime * rotationSpeed * mouseSensivity;
+		currentRotationX -= pitch;
+		currentRotationX = Mathf.Clamp(currentRotationX, -90, 90);
 		rifleTransformParent.localRotation = Quaternion.Euler(currentRotationX, 0, 0);
 		transform.localRotation = Quaternion.Euler(0, currentRotationY, 0);
 	}
