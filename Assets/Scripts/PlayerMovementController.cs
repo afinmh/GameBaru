@@ -12,6 +12,7 @@ public class PlayerMovementController : MonoBehaviour
 	private const string MOUSE_Y = "Mouse Y";
 
 	[SerializeField] Scope scope;
+	[SerializeField] private IMUSerialReader imuReader;
 	[SerializeField] private Transform rifleTransformParent;
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private float rotationSpeed;
@@ -75,11 +76,17 @@ public class PlayerMovementController : MonoBehaviour
 
 	private void HandleRotation()
 	{
-		float yaw = mouseInputX * Time.deltaTime * rotationSpeed * mouseSensivity;
-		currentRotationY += yaw;
-		float pitch = mouseInputY * Time.deltaTime * rotationSpeed * mouseSensivity;
-		currentRotationX -= pitch;
-		currentRotationX = Mathf.Clamp(currentRotationX, -90, 90);
+		float pitch = imuReader.pitch;
+		float yaw = imuReader.yaw;
+
+		// Akumulasi rotasi untuk kelancaran dengan filter penghalusan
+		currentRotationX += pitch * Time.deltaTime * mouseSensvityChangeRate;
+		currentRotationY += yaw * Time.deltaTime * mouseSensvityChangeRate;
+
+		// Batasi rotasi vertikal untuk mencegah kamera terbalik
+		currentRotationX = Mathf.Clamp(currentRotationX, -90f, 90f);
+
+		// Rotasi horizontal tanpa batasan
 		rifleTransformParent.localRotation = Quaternion.Euler(currentRotationX, 0, 0);
 		transform.localRotation = Quaternion.Euler(0, currentRotationY, 0);
 	}
