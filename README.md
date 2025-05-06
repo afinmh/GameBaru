@@ -34,6 +34,11 @@ Catatan:
 Kalo bukan versi 2019, matiin post processing biar ga blank pas nembak:
 ![Hirarki](image.png)
 
-Unchecklist
 ![Inspector 1](image-1.png)
 ![Inspector 2](image-2.png)
+
+Buat Controll, di Player:
+2 yang atas control dari arduino
+2 yang bawah control dari mouse + keyboard
+
+![Control](image-3.png)
