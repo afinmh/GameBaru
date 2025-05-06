@@ -29,3 +29,11 @@ Fitur:
    - Gatau masih belum kebayang
    - mentok paling sistem point
    - Punishment belum kebayang
+   
+Catatan:
+Kalo bukan versi 2019, matiin post processing biar ga blank pas nembak:
+![Hirarki](image.png)
+
+Unchecklist
+![Inspector 1](image-1.png)
+![Inspector 2](image-2.png)

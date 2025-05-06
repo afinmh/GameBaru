@@ -1,13 +1,12 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerShootingController : MonoBehaviour
+public class ShootingMouse : MonoBehaviour
 {
     [SerializeField] BulletTimeController bulletTimeController;
-    [SerializeField] private IMUSerialReader imuReader;
     [SerializeField] Bullet bulletPrefab;
     [SerializeField] Transform bulletSpawnTransform;
     [SerializeField] Scope scope;
@@ -32,48 +31,39 @@ public class PlayerShootingController : MonoBehaviour
         UpdateAmmoUI();
     }
 
-private void GetInput()
-{
-    // Reload tetap menggunakan keyboard
-    if (Input.GetKeyDown(KeyCode.R) && !isReloading && currentAmmo < maxAmmo)
+    private void GetInput()
     {
-        StartCoroutine(Reload());
-    }
-
-    // Ambil nilai dari IMU
-    bool button1Toggle = imuReader.button1SwitchState; // switch
-    int button2Raw = imuReader.rawButton2; // push button
-    int pot = imuReader.potValue;
-
-    // Scope toggle menggunakan button1
-    isScopeEnabled = button1Toggle;
-
-    // Menembak saat button2 ditekan dan scope aktif
-    if (button2Raw == 0 && isScopeEnabled)
-    {
-        if (isReloading)
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading && currentAmmo < maxAmmo)
         {
-            isShooting = false;
+            StartCoroutine(Reload());
         }
-        else if (currentAmmo > 0)
+
+        if (Input.GetMouseButtonDown(1))
+            isScopeEnabled = !isScopeEnabled;
+
+        bool tryToShoot = Input.GetMouseButtonDown(0);
+        if (tryToShoot && isScopeEnabled)
         {
-            isShooting = true;
+            if (isReloading)
+            {
+                isShooting = false;
+            }
+            else if (currentAmmo > 0)
+            {
+                isShooting = true;
+            }
+            else
+            {
+                isShooting = false;
+                AudioManager.Instance.PlayBulletEmpty();
+            }
         }
         else
         {
             isShooting = false;
-            AudioManager.Instance.PlayBulletEmpty();
         }
+        scrollInput = Input.mouseScrollDelta.y;
     }
-    else
-    {
-        isShooting = false;
-    }
-
-    // Potensiometer dari 0–1023 ke -1 sampai 1
-    scrollInput = Mathf.Lerp(-1f, 1f, pot / 1023f);
-}
-
 
     private void UpdateAmmoUI()
     {

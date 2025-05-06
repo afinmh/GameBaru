@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class IMUSerialReader : MonoBehaviour
 {
-    public string portName = "COM9";
-    public int baudRate = 115200;
+    public string portName = "COM9"; // Sesuaikan dengan port yang digunakan
+    public int baudRate = 38400; // Sesuaikan dengan baudrate di Arduino
     private SerialPort serial;
-    public float pitch;
-    public float yaw;
 
-    private const int bufferSize = 256; // Ukuran buffer yang cukup besar untuk membaca data serial
+    public float gx, gy, gz;
+    public int potValue;
+    private int rawButton1;
+    public int rawButton2;
+
+    public bool button1SwitchState { get; private set; } = false;
+    public bool button2SwitchState { get; private set; } = false;
+
+    private int lastButton1 = 1;
+    private int lastButton2 = 1;
 
     void Start()
     {
-        // Membuka koneksi serial
         serial = new SerialPort(portName, baudRate);
-        serial.ReadTimeout = 100; // Timeout baca data
-        serial.WriteTimeout = 100; // Timeout tulis data
+        serial.ReadTimeout = 100;
+        serial.WriteTimeout = 100;
         try
         {
             serial.Open();
@@ -35,15 +41,37 @@ public class IMUSerialReader : MonoBehaviour
         {
             try
             {
-                string line = ReadSerialLine(); // Membaca satu baris data dari serial
+                serial.Write(".");
+                string line = ReadSerialLine();
                 if (!string.IsNullOrEmpty(line))
                 {
                     string[] parts = line.Split(',');
-                    if (parts.Length == 2)
+                    if (parts.Length == 6)
                     {
-                        // Ekstrak nilai numerik dari format "Pitch: -3.38" dan "Yaw: -11.31"
-                        pitch = ExtractFloat(parts[0]);
-                        yaw = ExtractFloat(parts[1]);
+                        if (
+                            float.TryParse(parts[0], out gx) &&
+                            float.TryParse(parts[1], out gy) &&
+                            float.TryParse(parts[2], out gz) &&
+                            int.TryParse(parts[3], out potValue) &&
+                            int.TryParse(parts[4], out rawButton1) &&
+                            int.TryParse(parts[5], out rawButton2))
+                        {
+                            // Toggle logic for button1 (switch)
+                            if (rawButton1 == 0 && lastButton1 == 1)
+                                button1SwitchState = !button1SwitchState;
+                            lastButton1 = rawButton1;
+
+                            // Toggle logic for button2 (switch)
+                            if (rawButton2 == 0 && lastButton2 == 1)
+                                button2SwitchState = !button2SwitchState;
+                            lastButton2 = rawButton2;
+
+                            Debug.Log($"gx: {gx}, gy: {gy}, gz: {gz}, Pot: {potValue}, B1: {button1SwitchState}, B2: {button2SwitchState}");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Failed to parse sensor data: " + line);
+                        }
                     }
                     else
                     {
@@ -53,7 +81,7 @@ public class IMUSerialReader : MonoBehaviour
             }
             catch (TimeoutException)
             {
-                // Timeout terjadi jika tidak ada data yang dibaca
+                // Do nothing on timeout
             }
             catch (Exception ex)
             {
@@ -62,38 +90,17 @@ public class IMUSerialReader : MonoBehaviour
         }
     }
 
-    // Fungsi untuk membaca satu baris data dari serial
     private string ReadSerialLine()
     {
         try
         {
-            string line = string.Empty;
             if (serial.BytesToRead > 0)
-            {
-                line = serial.ReadLine();
-            }
-            return line;
+                return serial.ReadLine();
+            return string.Empty;
         }
         catch (TimeoutException)
         {
-            // Timeout saat membaca
             return string.Empty;
-        }
-    }
-
-    // Fungsi untuk mengekstrak nilai float dari string yang memiliki format "Label: Value"
-    private float ExtractFloat(string data)
-    {
-        try
-        {
-            // Mengambil substring setelah tanda ":" dan mengonversinya ke float
-            string valueString = data.Substring(data.IndexOf(':') + 1).Trim();
-            return float.Parse(valueString);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogWarning("Failed to extract float from: " + data + " - Error: " + ex.Message);
-            return 0f; // Kembalikan nilai default jika terjadi kesalahan
         }
     }
 

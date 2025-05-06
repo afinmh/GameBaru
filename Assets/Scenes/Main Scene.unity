@@ -2063,6 +2063,8 @@ GameObject:
   - component: {fileID: 904319586}
   - component: {fileID: 904319584}
   - component: {fileID: 904319585}
+  - component: {fileID: 904319588}
+  - component: {fileID: 904319587}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2119,6 +2121,7 @@ MonoBehaviour:
   minMouseSensivity: 0.1
   maxMouseSensivity: 1
   mouseSensvityChangeRate: 0.3
+  smoothSpeed: 3
 --- !u!114 &904319585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,6 +2135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTimeController: {fileID: 2034419962}
+  imuReader: {fileID: 1179176893}
   bulletPrefab: {fileID: 4611346767914794529, guid: e3db0549170f6954aa3b8842d34202c9,
     type: 3}
   bulletSpawnTransform: {fileID: 351624040}
@@ -2156,6 +2160,46 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &904319587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904319581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5300df56ea3f9254184f0b1bddd53544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletTimeController: {fileID: 2034419962}
+  bulletPrefab: {fileID: 4611346767914794529, guid: e3db0549170f6954aa3b8842d34202c9,
+    type: 3}
+  bulletSpawnTransform: {fileID: 351624040}
+  scope: {fileID: 1937654900}
+  shootingForce: 30
+  minDistanceToPlayAnimation: 1
+  reloadDuration: 1.5
+  ammoText: {fileID: 300903749}
+--- !u!114 &904319588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904319581}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7637b9f2e19dab4198b0c688a083300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: {fileID: 1937654900}
+  rifleTransformParent: {fileID: 1076979108}
+  moveSpeed: 2000
+  rotationSpeed: 50
+  minMouseSensivity: 0.1
+  maxMouseSensivity: 0.8
+  mouseSensvityChangeRate: 1
 --- !u!1 &906583155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,9 +2604,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portName: COM9
-  baudRate: 115200
-  pitch: 0
-  yaw: 0
+  baudRate: 38400
+  gx: -80
+  gy: 0
+  gz: 0
+  potValue: 0
+  rawButton2: 0
 --- !u!4 &1179176894
 Transform:
   m_ObjectHideFlags: 0
