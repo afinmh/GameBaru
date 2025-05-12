@@ -65,13 +65,26 @@ public class EnemyController : MonoBehaviour
     {
         StopAnimation();
         StopPatrol();
+
         ragdollController.EnableRagdoll();
+
+        // Tambah gaya hanya ke titik yang terkena (lebih realistis)
         if (shotRB)
         {
-            shotRB.AddForce(shootDirection.normalized * 100f, ForceMode.Impulse);
-            AudioManager.Instance.PlayHitSound();
-        }            
+            shotRB.WakeUp(); // Ini penting!
+            shotRB.AddForce(shootDirection.normalized * 150f, ForceMode.Impulse); // Tambah force
+        }
+
+        // Tambah gaya ringan ke semua rigidbody agar ragdoll bereaksi lebih natural
+        foreach (Rigidbody rb in ragdollController.GetRigidbodies())
+        {
+            rb.WakeUp();
+            rb.AddForce(shootDirection * 30f, ForceMode.Impulse); // Nilai kecil agar tak berlebihan
+        }
+
+        AudioManager.Instance.PlayHitSound();
     }
+
 
     public void StopAnimation()
     {

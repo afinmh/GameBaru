@@ -114,12 +114,13 @@ public class BulletTimeController : MonoBehaviour
 
 	private void Update()
 	{
-		if (!activeBullet)
+		if (activeBullet == null)
 			return;
 
 		if (CheckIfBulletIsNearTarget())
 			ChangeCamera();
 	}
+
 
 	private bool CheckIfBulletIsNearTarget()
 	{
@@ -157,12 +158,20 @@ public class BulletTimeController : MonoBehaviour
 	private IEnumerator FinishSequence()
 	{
 		yield return new WaitForSecondsRealtime(finishingCameraDuration);
+
 		cameraBrain.gameObject.SetActive(false);
 		shootingController.gameObject.SetActive(true);
 		canvas.gameObject.SetActive(true);
 		timeScaleController.SpeedUpTime();
+
 		DestroyCinemachineSetup();
-		Destroy(activeBullet.gameObject);
+
+		// Cek apakah bullet masih ada sebelum menghancurkannya
+		if (activeBullet != null)
+		{
+			Destroy(activeBullet.gameObject);
+		}
+
 		ResetVariables();
 	}
 
