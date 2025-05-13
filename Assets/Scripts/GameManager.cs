@@ -65,8 +65,11 @@ public class GameManager : MonoBehaviour
         if (zombiesLeft <= 0)
         {
             Debug.Log("Semua zombie telah dikalahkan!");
-            gameOverText.text = "Semua zombie telah dikalahkan!";
+            gameOverText.text = "Horee!!!";
             gameOverText.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f; 
         }
 
         CheckGameOver();
@@ -105,6 +108,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over! Out of ammo.");
         gameOverText.text = "Game Over!";
         gameOverText.gameObject.SetActive(true);
-        Time.timeScale = 0f; // Optional: Pause game
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0f; 
     }
 }
