@@ -67,9 +67,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Semua zombie telah dikalahkan!");
             gameOverText.text = "Horee!!!";
             gameOverText.gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Time.timeScale = 0f; 
         }
 
         CheckGameOver();
