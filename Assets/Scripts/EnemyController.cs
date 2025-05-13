@@ -17,12 +17,14 @@ public class EnemyController : MonoBehaviour
     private int currentPatrolIndex = 0;
     private bool isWaiting = false;
     private bool canPatrol = true;
+    private GameManager gameManager;
 
 
     private void Awake()
     {
         animationController = GetComponent<EnemyAnimationController>();
         ragdollController = GetComponent<RagdollController>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
@@ -83,6 +85,12 @@ public class EnemyController : MonoBehaviour
         }
 
         AudioManager.Instance.PlayHitSound();
+
+    // Panggil GameManager
+        if (gameManager != null)
+        {
+            gameManager.OnZombieKilled();
+        }
     }
 
 

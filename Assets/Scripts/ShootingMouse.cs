@@ -20,8 +20,9 @@ public class ShootingMouse : MonoBehaviour
     private bool wasScopeOn;
     
     private bool isReloading = false;
-    private int currentAmmo = 1;
-    private const int maxAmmo = 1;
+    private const int magazineSize = 1;
+    private int currentAmmo = magazineSize;
+
 
     private void Update()
     {
@@ -33,7 +34,7 @@ public class ShootingMouse : MonoBehaviour
 
     private void GetInput()
     {
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading && currentAmmo < maxAmmo)
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading && currentAmmo < magazineSize)
         {
             StartCoroutine(Reload());
         }
@@ -67,7 +68,7 @@ public class ShootingMouse : MonoBehaviour
 
     private void UpdateAmmoUI()
     {
-        ammoText.text = $"Ammo: {currentAmmo}/{maxAmmo}";
+        ammoText.text = $"Ammo: {currentAmmo}/{magazineSize}";
     }
 
     private void HandleShooting()
@@ -120,7 +121,18 @@ public class ShootingMouse : MonoBehaviour
         scope.ReloadOn();
         Debug.Log("Reloading...");
         yield return new WaitForSeconds(reloadDuration);
-        currentAmmo = maxAmmo;
+
+        if (GameManager.Instance.maxAmmoReserve > 0)
+        {
+            GameManager.Instance.UseOneAmmo(); // kurangi total ammo global
+            currentAmmo = magazineSize;
+        }
+        else
+        {
+            Debug.Log("No more ammo in reserve!");
+            currentAmmo = 0;
+        }
+
         isReloading = false;
         scope.ReloadOff();
         Debug.Log("Reloaded!");
