@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void UseOneAmmo()
     {
-        maxAmmoReserve = Mathf.Max(0, maxAmmoReserve - 1); // Hindari minus
+        maxAmmoReserve = Mathf.Max(0, maxAmmoReserve - 1);
         Debug.Log("Ammo left: " + maxAmmoReserve);
         UpdateAmmoText();
         CheckGameOver();

@@ -47,10 +47,19 @@ public class BulletTimeController : MonoBehaviour
 	{
 		ResetVariables();
 		float distanceToTarget = Vector3.Distance(activeBullet.transform.position, targetPosition);
-		var setupsInRange = bulletTackingSetup.Where(s => distanceToTarget > s.minDistance && distanceToTarget < s.maxDistance).ToArray();
+		Debug.Log($"[BulletTime] Distance to target: {distanceToTarget}");
+
+		var setupsInRange = bulletTackingSetup.Where(s => 
+			distanceToTarget > s.minDistance && 
+			distanceToTarget < s.maxDistance).ToArray();
+		Debug.Log($"[BulletTime] Setups in range: {setupsInRange.Length}");
+
 		var selectedTrackingSetup = SelectTrackingSetup(activeBullet.transform, setupsInRange, activeBullet.transform.rotation);
 		if (selectedTrackingSetup == null)
+		{
+			Debug.LogWarning("[BulletTime] No tracking setup selected — camera won't activate.");
 			return;
+		}
 		this.activeBullet = activeBullet;
 		this.targetPosition = targetPosition;
 
@@ -109,8 +118,12 @@ public class BulletTimeController : MonoBehaviour
 
 	private bool CheckIfPathIsClear(CinemachinePathController path, Transform trans, Quaternion orientation)
 	{
-		return path.CheckIfPathISClear(trans, Vector3.Distance(trans.position, targetPosition), orientation);
+		float dist = Vector3.Distance(trans.position, targetPosition);
+		bool clear = path.CheckIfPathISClear(trans, dist, orientation);
+		Debug.Log($"Check path clear? {clear} | Distance: {dist} | Path: {path.name}");
+		return clear;
 	}
+
 
 	private void Update()
 	{
