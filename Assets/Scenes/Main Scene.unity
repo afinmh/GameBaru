@@ -5380,11 +5380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8becf47980ee7f44297b58e9b60b645b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxZombiesToActivate: 2
+  maxZombiesToActivate: 5
   zombieCounterText: {fileID: 1465225502}
   gameOverText: {fileID: 1559683797}
   ammoText: {fileID: 608679699}
-  maxAmmoReserve: 6
+  maxAmmoReserve: 7
 --- !u!4 &430194472
 Transform:
   m_ObjectHideFlags: 0
