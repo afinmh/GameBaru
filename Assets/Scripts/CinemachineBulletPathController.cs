@@ -13,11 +13,12 @@ public class CinemachineBulletPathController : CinemachinePathController
             orientation, distance, ~mask))
         {
             // Abaikan terrain jika kena
-            if (hit.collider.GetComponent<Terrain>() != null)
+            if (hit.collider.GetComponent<Terrain>() != null ||
+                hit.collider.gameObject.name == "Static" ||
+                hit.collider.gameObject.name == "Pipes_set_v1_H_set_v1")
             {
-                return true; // Path dianggap clear jika hanya terrain yang kena
+                return true; // Abaikan Terrain, Static, dan Pipes_set_v1_H_set_v1
             }
-
             Debug.LogError(hit.collider.gameObject.name);
             return false; // Ada penghalang lain
         }
